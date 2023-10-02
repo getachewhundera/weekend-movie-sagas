@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
+import { useHistory } from 'react-router-dom';
 
 
 function MovieList() {
@@ -13,6 +14,11 @@ function MovieList() {
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
+    const history = useHistory(); 
+
+    const handleRoute = () => {
+        history.push('/DetailsPage'); 
+    }; 
 
 
 
@@ -24,7 +30,7 @@ function MovieList() {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title} />
+                            <img onClick={handleRoute} src={movie.poster} alt={movie.title} />
                         </div>
                     );
                 })}

@@ -18,7 +18,7 @@ function DetailsPage() {
                     to={"/"}
                     variant="contained"
                     color="primary"
-                > Details page </Button>
+                > Back to List </Button>
 
 
   
