@@ -36,6 +36,8 @@ We've added some movie posters in the `public/images` folder, and the database i
 
 ---
 
+
+- installed this on project directory: npm install @mui/material @emotion/react @emotion/styled 
 ## Feature List
 
 > NOTE: Start by taking inventory of the existing code. Part of the work for setting up sagas has been done for you.
@@ -48,9 +50,10 @@ This view is completed already! It displays all of the movies in the movie datab
 
 ### Details Page
 
-This should show all details **including ALL genres** for the selected movie, including title, description, and the image, too! Use Sagas and Redux to handle these requests and data.
+[] This should show all details **including ALL genres** for the selected movie, including title, description, and the image, too! Use Sagas and Redux to handle these requests and data.
 
-- TODO: The details page should have a `Back to List` button, which should bring the user to the Home/List Page
+- [x]TODO: The details page should have a `Back to List` button
+    - [x] which should bring the user to the Home/List Page
 
 > Base functionality does not require the movie details to load correctly after refresh of the browser.
 
