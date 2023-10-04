@@ -16,10 +16,10 @@ function MovieList() {
     }, []);
     const history = useHistory(); 
 
-    const handleRoute = () => {
-        history.push('/DetailsPage'); 
+    const handleRoute = (movieId) => {
+        history.push('/MovieList/${movieId}'); 
     }; 
-
+    
 
 
     return (
@@ -30,7 +30,8 @@ function MovieList() {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img onClick={handleRoute} src={movie.poster} alt={movie.title} />
+                            <img onClick={() => handleRoute(movie.id)} src={movie.poster} alt={movie.title} />
+                             <Link to={`/MovieList/${movie.id}`}> more info </Link>
                         </div>
                     );
                 })}
@@ -38,7 +39,7 @@ function MovieList() {
 {/* temporary button to get to the details page view  */}
             <Button
                     component={Link}
-                    to={"/DetailsPage"}
+                    to={'/MovieList/:DetailsPageId'}
                     variant="contained"
                     color="primary"
                 > Details page </Button>

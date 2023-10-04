@@ -11,14 +11,20 @@ function App() {
       <h1>The Movies Saga!</h1>
       <Router> 
         <Switch>   
-        <Route path="/" exact>
+        <Route path='/' exact>
           <MovieList />
         </Route>
-        
-        {/* Details page */}
-        <Route path="/DetailsPage" >
-          <DetailsPage />
+        <Route path='/MovieList' exact>
+          <MovieList />
         </Route>
+
+        <Route path='/MovieList/:DetailsPageId'> 
+        <DetailsPage /> 
+        </Route> 
+       
+  
+
+
 
         {/* Add Movie page */}
         </Switch>   
