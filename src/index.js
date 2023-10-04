@@ -27,19 +27,15 @@ function* fetchAllMovies() {
     } catch {
         console.log('get all error');
     }
-        
+
 }
 
 
 function* fetchSpecificMovieDetails(action) {
     //get specific movie from the database
     try {
-        console.log('payload incoming'); 
         const response = yield axios.get(`/api/movie/${action.payload}`);
-          console.log('payload was sent '); 
         yield put({ type: 'SET_MOVIE_DETAILS', payload: response.data });
-        console.log('info was sent to reducer'); 
-      
     } catch (error) {
         console.log('Error fetching movie details:', error);
     }
