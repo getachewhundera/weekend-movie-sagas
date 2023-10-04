@@ -3,6 +3,7 @@ import './DetailsPage.css'
 import { Button } from "@mui/material";
 import {Link, useParams } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 
 
@@ -11,8 +12,8 @@ import { useSelector } from "react-redux";
 
 function DetailsPage() {
 
-    
-    const movies = useSelector(store => store.movies);
+    const dispatch = useDispatch(); 
+    const movieDetails = useSelector(store => store.movieDetails);
 
     const { DetailsPageId } = useParams();
 
@@ -22,7 +23,7 @@ function DetailsPage() {
 
     //Dispatch an action to fetch the movie details 
     useEffect(() => {
-        dispatchEvent({ type: 'FETCH_MOVIE_DETAILS', payload: movieId }); 
+        dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: movieId }); 
     }, [dispatch, movieId]); 
 
 
@@ -30,7 +31,9 @@ function DetailsPage() {
         <>
         <h1> This is the Details Page </h1>
 
-        <h2> {Movie} </h2> 
+        <h2> {movieDetails.title} </h2>
+        <img src={movieDetails.poster} alt={movieDetails.title}  />
+        <p> {movieDetails.description} </p>
 
         <Button
                     component={Link}
