@@ -14,12 +14,13 @@ function MovieList() {
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
-    const history = useHistory(); 
 
-    const handleRoute = (movieId) => {
-        history.push('/MovieList/${movieId}'); 
-    }; 
-    
+    const history = useHistory();
+
+    const handleRoute = () => {
+        history.push(`/MovieList/${movies.id}`)
+    }
+
 
 
     return (
@@ -30,12 +31,14 @@ function MovieList() {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img onClick={() => handleRoute(movie.id)} src={movie.poster} alt={movie.title} />
-                             <Link to={`/MovieList/${movie.id}`}> more info </Link>
+                            <Link to={`/MovieList/${movie.id}`}>
+                                <img src={movie.poster} alt={movie.title} />
+                            </Link>
                         </div>
                     );
                 })}
             </section>
+
 {/* temporary button to get to the details page view  */}
             <Button
                     component={Link}

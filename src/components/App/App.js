@@ -14,13 +14,10 @@ function App() {
         <Route path='/' exact>
           <MovieList />
         </Route>
-        <Route path='/MovieList' exact>
-          <MovieList />
-        </Route>
+    
+        <Route path="/MovieList/:movieId" component={DetailsPage} />
 
-        <Route path='/MovieList/:DetailsPageId'> 
-        <DetailsPage /> 
-        </Route> 
+
        
   
 

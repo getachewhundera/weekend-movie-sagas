@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import './DetailsPage.css'
 import { Button } from "@mui/material";
 import {Link, useParams } from 'react-router-dom';
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 
 
 
@@ -12,14 +12,14 @@ import { useDispatch } from "react-redux";
 
 function DetailsPage() {
 
-    const dispatch = useDispatch(); 
+    const dispatch = useDispatch();
+    
     const movieDetails = useSelector(store => store.movieDetails);
 
     const { DetailsPageId } = useParams();
 
     //converts DetailsPageId to a number since it's a string from the URL 
     const movieId= Number(DetailsPageId); 
-    const Movie = movies.find((movie) => movie.id === movieId);
 
     //Dispatch an action to fetch the movie details 
     useEffect(() => {
@@ -37,7 +37,7 @@ function DetailsPage() {
 
         <Button
                     component={Link}
-                    to={"/MovieList"}
+                    to={"/"}
                     variant="contained"
                     color="primary"
                 > Back to List </Button>

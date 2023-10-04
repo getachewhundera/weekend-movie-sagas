@@ -16,6 +16,20 @@ router.get('/', (req, res) => {
 
 });
 
+//new route that handles fetching a specifc movie based on the Id that is passed to it. 
+router.get('/:id', (req, res) => {
+  const movieId = req.params.id;
+  const query = `SELECT * FROM movies WHERE id=$1`;
+  pool.query(query, [movieId])
+      .then(result => {
+          res.send(result.rows[0]); // Send back the specific movie details
+      })
+      .catch(err => {
+          console.log('ERROR: Get specific movie', err);
+          res.sendStatus(500);
+      });
+});
+
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie
