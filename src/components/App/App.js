@@ -17,13 +17,6 @@ function App() {
     
         <Route path="/MovieList/:movieId" component={DetailsPage} />
 
-
-       
-  
-
-
-
-        {/* Add Movie page */}
         </Switch>   
       </Router>
     </div>

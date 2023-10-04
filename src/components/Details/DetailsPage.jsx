@@ -16,15 +16,15 @@ function DetailsPage() {
     
     const movieDetails = useSelector(store => store.movieDetails);
 
-    const { DetailsPageId } = useParams();
+    const { movieId } = useParams();
 
-    //converts DetailsPageId to a number since it's a string from the URL 
-    const movieId= Number(DetailsPageId); 
+    //converts movieId to a number since it's a string from the URL 
+    const moviesId = Number(movieId); 
 
     //Dispatch an action to fetch the movie details 
     useEffect(() => {
-        dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: movieId }); 
-    }, [dispatch, movieId]); 
+        dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: moviesId }); 
+    }, [dispatch, moviesId]); 
 
 
     return(
@@ -42,14 +42,7 @@ function DetailsPage() {
                     color="primary"
                 > Back to List </Button>
 
-
-  
-
-
-
         </> 
-
-
     ); 
 }; 
 

@@ -17,8 +17,10 @@ router.get('/', (req, res) => {
 });
 
 //new route that handles fetching a specifc movie based on the Id that is passed to it. 
-router.get('/:id', (req, res) => {
-  const movieId = req.params.id;
+console.log('payload recieved before router'); 
+router.get('/:movieId', (req, res) => {
+  const movieId = req.params.movieId;
+  console.log('payload has been recived by router'); 
   const query = `SELECT * FROM movies WHERE id=$1`;
   pool.query(query, [movieId])
       .then(result => {

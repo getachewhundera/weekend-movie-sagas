@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 import { Link } from 'react-router-dom';
-import { Button } from '@mui/material';
-import { useHistory } from 'react-router-dom';
+
 
 
 function MovieList() {
@@ -15,11 +14,6 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    const history = useHistory();
-
-    const handleRoute = () => {
-        history.push(`/MovieList/${movies.id}`)
-    }
 
 
 
@@ -38,14 +32,6 @@ function MovieList() {
                     );
                 })}
             </section>
-
-{/* temporary button to get to the details page view  */}
-            <Button
-                    component={Link}
-                    to={'/MovieList/:DetailsPageId'}
-                    variant="contained"
-                    color="primary"
-                > Details page </Button>
 
         </main>
 
