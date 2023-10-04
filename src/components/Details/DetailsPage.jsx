@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './DetailsPage.css'
 import { Button } from "@mui/material";
 import {Link, useParams } from 'react-router-dom';
@@ -14,9 +14,16 @@ function DetailsPage() {
     
     const movies = useSelector(store => store.movies);
 
-    const { DetailsPageId } = useParams(); 
+    const { DetailsPageId } = useParams();
+
+    //converts DetailsPageId to a number since it's a string from the URL 
     const movieId= Number(DetailsPageId); 
     const Movie = movies.find((movie) => movie.id === movieId);
+
+    //Dispatch an action to fetch the movie details 
+    useEffect(() => {
+        dispatchEvent({ type: 'FETCH_MOVIE_DETAILS', payload: movieId }); 
+    }, [dispatch, movieId]); 
 
 
     return(
