@@ -15,6 +15,7 @@ function DetailsPage() {
     const dispatch = useDispatch();
 
     const movieDetails = useSelector(store => store.movieDetails);
+    // const genres = useSelector(store => store.genres)
 
     const { movieId } = useParams();
 
@@ -24,6 +25,7 @@ function DetailsPage() {
     //Dispatch an action to fetch the movie details 
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: moviesId });
+        dispatch({ type: 'FETCH_GENRES'})
     }, [dispatch, moviesId]);
 
 
@@ -34,6 +36,8 @@ function DetailsPage() {
             <h2> {movieDetails.title} </h2>
             <img src={movieDetails.poster} alt={movieDetails.title} />
             <p> {movieDetails.description} </p>
+            {/* <p> {genres} </p> */}
+            
 
             <Button
                 component={Link}
